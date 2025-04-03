@@ -1,6 +1,9 @@
 name: Deploy Astro site to Pages
 
 on:
+  schedule:
+    - cron: "0 1 * * *" # Runs every day at 1:00 AM UTC
+
   push:
     branches: ["main"]
 
