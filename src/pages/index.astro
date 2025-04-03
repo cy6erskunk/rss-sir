@@ -10,77 +10,77 @@ oneDayAgo.setHours(0, 0, 0, 0);
 const parser = new Parser();
 
 const feedSources = [
-	"https://simonwillison.net/atom/everything/",
-	"https://developer.mozilla.org/en-US/blog/rss.xml",
+  "https://simonwillison.net/atom/everything/",
+  "https://developer.mozilla.org/en-US/blog/rss.xml",
 ];
 
 interface FeedItem {
-	feed?: string;
-	title?: string;
-	link?: string;
-	date?: Date;
-	summary?: string;
+  feed?: string;
+  title?: string;
+  link?: string;
+  date?: Date;
+  summary?: string;
 }
 
 const feedItems: FeedItem[] = [];
 
 await Promise.allSettled(
-	feedSources.map(async (source) => {
-		try {
-			const feed = await parser.parseURL(source);
-			feed.items.forEach((item) => {
-				const date = item.pubDate ? new Date(item.pubDate) : undefined;
+  feedSources.map(async (source) => {
+    try {
+      const feed = await parser.parseURL(source);
+      feed.items.forEach((item) => {
+        const date = item.pubDate ? new Date(item.pubDate) : undefined;
 
-				if (date && date >= oneDayAgo) {
-					feedItems.push({
-						feed: feed.title,
-						title: item.title,
-						link: item.link,
-						date,
-						summary: item.summary,
-					});
-				}
-			});
-		} catch (error) {
-			console.error(`Error fetching feed from ${source}:`, error);
-		}
-	}),
+        if (date && date >= oneDayAgo) {
+          feedItems.push({
+            feed: feed.title,
+            title: item.title,
+            link: item.link,
+            date,
+            summary: item.summary,
+          });
+        }
+      });
+    } catch (error) {
+      console.error(`Error fetching feed from ${source}:`, error);
+    }
+  }),
 );
 
 const sortedFeedItems = feedItems.sort(
-	(a, b) => (b.date ?? new Date()).getTime() - (a.date ?? new Date()).getTime(),
+  (a, b) => (b.date ?? new Date()).getTime() - (a.date ?? new Date()).getTime(),
 );
 ---
 
 <Layout>
-	<main>
-		{
-			sortedFeedItems.map((item) => (
-				<article>
-					<h2>
-						<a href={item.link}>{item.title}</a>
-					</h2>
-					<p>{item.feed}</p>
-					<p>{item.date}</p>
-					<p set:html={item.summary} />
-				</article>
-			))
-		}
-	</main>
+  <main>
+    {
+      sortedFeedItems.map((item) => (
+        <article>
+          <h2>
+            <a href={item.link}>{item.title}</a>
+          </h2>
+          <p>{item.feed}</p>
+          <p>{item.date}</p>
+          <p set:html={item.summary} />
+        </article>
+      ))
+    }
+  </main>
 </Layout>
 
 <style>
-	main {
-		padding: 1em;
-	}
+  main {
+    padding: 1em;
+  }
 
-	article {
-		margin-bottom: 2em;
-	}
+  article {
+    margin-bottom: 2em;
+  }
 
-	article :global(img),
-	article :global(pre) {
-		max-width: calc(100% - 2em);
-		overflow: hidden;
-	}
+  article :global(img),
+  article :global(pre) {
+    max-width: calc(100% - 2em);
+    overflow: hidden;
+  }
 </style>
