@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       astro:
-        specifier: ^5.6.0
+        specifier: 5.6.0
         version: 5.6.0(rollup@4.39.0)(typescript@5.8.2)
       rss-parser:
-        specifier: ^3.13.0
+        specifier: 3.13.0
         version: 3.13.0
 
 packages:
