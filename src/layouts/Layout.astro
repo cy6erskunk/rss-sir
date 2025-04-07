@@ -40,7 +40,8 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 	}
 
 	@media (prefers-color-scheme: dark) {
-		:root:is(.dark) {
+		:root:is(.dark),
+		:root:not(.dark):not(.light) {
 			--color-bg: #111827;
 			--color-text: #e5e7eb;
 			--color-primary: #60a5fa;
@@ -74,5 +75,8 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 		margin-bottom: 1.5rem;
 		max-width: var(--max-width);
 		margin: 0 auto;
+	}
+	:root:not(.dark):not(.light) .theme-switch-container {
+		display: none;
 	}
 </style>
