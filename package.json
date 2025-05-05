@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "5.7.6",
+    "astro": "5.7.10",
     "rss-parser": "3.13.0"
   }
 }
