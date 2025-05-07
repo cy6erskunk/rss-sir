@@ -1,12 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Feed from "../components/Feed.astro";
-import { db } from "../firebase-config";
-import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/server";
 
 async function fetchSources() {
-  const sourcesCollection = collection(db, "sources");
-  const querySnapshot = await getDocs(sourcesCollection);
+  const querySnapshot = await db.collection("sources").get();
 
   const sourcesList = querySnapshot.docs.map((doc) => doc.data().url);
 
