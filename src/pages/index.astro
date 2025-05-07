@@ -1,8 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Feed from "../components/Feed.astro";
+import { db } from "../firebase-config";
+import { collection, getDocs } from "firebase/firestore";
+
+async function fetchSources() {
+  const sourcesCollection = collection(db, "sources");
+  const querySnapshot = await getDocs(sourcesCollection);
+
+  const sourcesList = querySnapshot.docs.map((doc) => doc.data().url);
+
+  return sourcesList;
+}
 ---
 
 <Layout>
-  <Feed />
+  <Feed sources={await fetchSources()} />
 </Layout>
