@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       astro:
-        specifier: 5.7.12
-        version: 5.7.12(@types/node@22.15.14)(rollup@4.39.0)(typescript@5.8.2)
+        specifier: 5.7.13
+        version: 5.7.13(@types/node@22.15.14)(rollup@4.39.0)(typescript@5.8.2)
       firebase:
         specifier: 11.7.1
         version: 11.7.1
@@ -873,8 +873,8 @@ packages:
     resolution: {integrity: sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==}
     engines: {node: '>=8'}
 
-  astro@5.7.12:
-    resolution: {integrity: sha512-UQOItiZz2hcv9PlHTQ6dNqFDIVNPnmwk6eyAjJqPE9O8EDHZK2JKtTRD0CBFN2Uqr0RE0TWP2gqDpLfsa5dJEA==}
+  astro@5.7.13:
+    resolution: {integrity: sha512-cRGq2llKOhV3XMcYwQpfBIUcssN6HEK5CRbcMxAfd9OcFhvWE7KUy50zLioAZVVl3AqgUTJoNTlmZfD2eG0G1w==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3081,7 +3081,7 @@ snapshots:
   arrify@2.0.1:
     optional: true
 
-  astro@5.7.12(@types/node@22.15.14)(rollup@4.39.0)(typescript@5.8.2):
+  astro@5.7.13(@types/node@22.15.14)(rollup@4.39.0)(typescript@5.8.2):
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@astrojs/internal-helpers': 0.6.1
