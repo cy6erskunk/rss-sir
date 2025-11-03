@@ -47,7 +47,7 @@ await Promise.allSettled(
           });
         }
       });
-      if (feedItems.length === numberOfExistingItems) {
+      if (feedItems.length === numberOfExistingItems && feed.items.length > 0) {
         const firstItem = feed.items[0];
         moreItems.push({
           feed: feed.title,

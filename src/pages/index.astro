@@ -6,7 +6,7 @@ import { db } from "../firebase/server";
 async function fetchSources(): Promise<string[] | undefined> {
 
     const querySnapshot = await db?.collection("sources").get();
-    const sourcesList = querySnapshot?.docs.map((doc) => doc.data().url) ?? undefined;
+    const sourcesList = querySnapshot?.docs.map((doc) => doc.data().url);
 
     return sourcesList;
 }

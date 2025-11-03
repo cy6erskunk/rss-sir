@@ -28,7 +28,7 @@ try {
     admin.auth(); // If you need to interact with Firebase Authentication
 
 } catch (error) {
-    console.log("Firebase admin initialization error", error);
+    console.error("Firebase admin initialization error", error);
 }
 
 
