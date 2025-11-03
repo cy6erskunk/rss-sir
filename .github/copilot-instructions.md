@@ -121,10 +121,10 @@ pnpm preview         # Preview production build locally
 
 ### Core Dependencies
 
-- `astro`: Static site generator framework
-- `firebase`: Firebase client SDK
-- `firebase-admin`: Firebase Admin SDK for server-side operations
-- `rss-parser`: RSS/Atom feed parsing library
+- `astro@5.13.5`: Static site generator framework
+- `firebase@12.3.0`: Firebase client SDK
+- `firebase-admin@13.5.0`: Firebase Admin SDK for server-side operations
+- `rss-parser@3.13.0`: RSS/Atom feed parsing library
 
 ### Adding New Dependencies
 
