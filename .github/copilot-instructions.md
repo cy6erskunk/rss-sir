@@ -131,6 +131,7 @@ pnpm preview         # Preview production build locally
 - Use `pnpm add <package>` to add dependencies
 - Keep dependencies minimal and well-maintained
 - Prefer Astro-native solutions when available
+- **Note**: Dependency versions in `package.json` are locked and automatically managed by Renovate bot
 
 ## Best Practices
 
@@ -141,6 +142,7 @@ pnpm preview         # Preview production build locally
 5. **Responsive Design**: Ensure components work on mobile and desktop
 6. **Type Safety**: Always use TypeScript interfaces for data structures
 7. **Code Organization**: Keep components focused and single-responsibility
+8. **Documentation**: When making changes to the project, update both `README.md` and this file (`.github/copilot-instructions.md`) to keep documentation in sync
 
 ## Known Constraints
 
