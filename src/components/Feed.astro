@@ -85,23 +85,25 @@ const sortedFeedItems = feedItems.sort(
       ))
     }
   </div>
-  <div class="feed-list more-items">
-    <h2>Some older items</h2>
-    {
-      moreItems.map((item) => (
-        <article class="feed-item">
-          <header class="feed-header">
-            <div class="feed-title">{item.feed}</div>
-            <time class="feed-date">{item.date}</time>
-          </header>
-          <h2 class="item-title">
-            <a href={item.link}>{item.title}</a>
-          </h2>
-          <div class="item-summary" set:html={item.summary} />
-        </article>
-      ))
-    }
-  </div>
+  {moreItems.length > 0 && (
+    <div class="feed-list more-items">
+      <h2>Some older items</h2>
+      {
+        moreItems.map((item) => (
+          <article class="feed-item">
+            <header class="feed-header">
+              <div class="feed-title">{item.feed}</div>
+              <time class="feed-date">{item.date}</time>
+            </header>
+            <h2 class="item-title">
+              <a href={item.link}>{item.title}</a>
+            </h2>
+            <div class="item-summary" set:html={item.summary} />
+          </article>
+        ))
+      }
+    </div>
+  )}
 </main>
 
 <style>
