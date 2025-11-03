@@ -1,34 +1,39 @@
-# Astro Starter Kit: Basics
+# RSS-Sir
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+RSS-Sir is an RSS feed aggregator built with Astro that displays recent articles from multiple RSS feeds. The application fetches RSS sources from a Firebase Firestore database and displays feed items from the last 24 hours.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- 📡 Aggregates multiple RSS feeds from Firebase Firestore
+- 🕐 Shows articles from the last 24 hours
+- 🎨 Dark/light theme support
+- 📱 Responsive design
+- ⚡ Static site generation with Astro
+- 🔥 Firebase Firestore backend
 
 ## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── rss-sir-logo.png
 ├── src/
-│   ├── layouts/
+│   ├── assets/          # Static assets (SVG icons, backgrounds)
+│   │   ├── astro.svg
+│   │   └── background.svg
+│   ├── components/      # Astro components
+│   │   ├── Feed.astro       # Main RSS feed display component
+│   │   └── ThemeSwitcher.astro
+│   ├── firebase/        # Firebase configuration
+│   │   └── server.ts        # Firebase Admin SDK setup
+│   ├── layouts/         # Page layouts
 │   │   └── Layout.astro
-│   └── pages/
+│   └── pages/           # Astro pages (routes)
 │       └── index.astro
+├── .env.example         # Environment variable template
 └── package.json
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
@@ -36,13 +41,28 @@ All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+| `pnpm install`            | Installs dependencies                            |
+| `pnpm dev`                | Starts local dev server at `localhost:4321`      |
+| `pnpm build`              | Build your production site to `./dist/`          |
+| `pnpm preview`            | Preview your build locally, before deploying     |
+| `pnpm astro ...`          | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help`    | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 🔧 Environment Setup
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Copy `.env.example` to `.env` and fill in your Firebase credentials
+2. Set up a Firebase Firestore database with a `sources` collection
+3. Add RSS feed URLs to the `sources` collection (each document should have a `url` field)
+
+## 📚 Documentation
+
+For details on project architecture, coding conventions, and best practices, see [`.github/copilot-instructions.md`](.github/copilot-instructions.md).
+
+When making changes to the project:
+- Update both this README and `.github/copilot-instructions.md` to keep documentation in sync
+- The README provides user-facing documentation
+- The Copilot instructions provide developer-facing guidance for code contributions
+
+## 📦 Dependencies
+
+Dependencies are automatically managed by Renovate bot. Version numbers in `package.json` are locked and will be updated through automated pull requests.
