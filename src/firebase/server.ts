@@ -25,7 +25,6 @@ try {
         });
     }
     db = admin.firestore();
-    admin.auth(); // If you need to interact with Firebase Authentication
 
 } catch (error) {
     console.error("Firebase admin initialization error", error);
