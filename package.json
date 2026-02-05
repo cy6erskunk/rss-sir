@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "5.16.11",
+    "astro": "5.17.1",
     "firebase": "12.7.0",
     "firebase-admin": "13.6.0",
     "rss-parser": "3.13.0"
